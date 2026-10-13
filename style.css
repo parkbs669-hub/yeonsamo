@@ -1,0 +1,154 @@
+/* 연사모 클럽 페이지 스타일 — 휴대폰 화면 기준으로 쓰고 넓은 화면은 아래 미디어 쿼리에서 확장 */
+
+:root {
+  --night: #0d1f1a;
+  --court: #1f4d3f;
+  --ball: #d4ef3a;
+  --bg: #f7f8f5;
+  --text: #1b1f1d;
+  --muted: #5b6460;
+  --line: #e2e6df;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+
+body {
+  margin: 0;
+  font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+h1, h2 { line-height: 1.35; margin: 0 0 16px; }
+h2 { font-size: 1.5rem; }
+p { margin: 0 0 12px; }
+img { display: block; max-width: 100%; height: auto; }
+
+/* 버튼 */
+.btn {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: var(--ball);
+  color: var(--night);
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--ball);
+}
+.btn-small { padding: 8px 16px; font-size: 0.9rem; }
+.btn-outline { background: transparent; color: var(--court); border-color: var(--court); }
+.btn-kakao { background: #fee500; border-color: #fee500; color: #191919; }
+.btn-disabled { background: var(--line); border-color: var(--line); color: var(--muted); cursor: default; }
+
+/* 상단 메뉴 */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 20px;
+  background: rgba(13, 31, 26, 0.92);
+  backdrop-filter: blur(6px);
+}
+.logo { color: #fff; font-weight: 800; font-size: 1.25rem; text-decoration: none; }
+.site-nav { display: none; }
+
+/* 첫 화면 */
+.hero {
+  min-height: 82vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 20px 48px;
+  color: #fff;
+  background:
+    linear-gradient(180deg, rgba(13, 31, 26, 0.15) 0%, rgba(13, 31, 26, 0.85) 75%),
+    url("images/hero-night-court.jpg") center / cover no-repeat;
+}
+.hero-inner { max-width: 720px; }
+.hero h1 { font-size: 1.9rem; }
+.hero-eyebrow { color: var(--ball); font-weight: 700; font-size: 0.95rem; }
+.hero-sub { color: rgba(255, 255, 255, 0.85); margin-bottom: 24px; }
+
+/* 공통 섹션 */
+.section { padding: 56px 20px; max-width: 1080px; margin: 0 auto; }
+.lead { font-size: 1.05rem; }
+.note { color: var(--muted); font-size: 0.95rem; }
+
+.stats { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.stats li { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 8px; text-align: center; }
+.stats strong { display: block; font-size: 1.4rem; color: var(--court); }
+.stats span { color: var(--muted); font-size: 0.9rem; }
+
+/* 사진 | 글 */
+.split { display: grid; gap: 24px; }
+.split-img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
+.info { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; margin: 0; }
+.info dt { color: var(--muted); }
+.info dd { margin: 0; font-weight: 600; }
+
+/* 회비 */
+.fee-cards { display: grid; gap: 12px; margin-bottom: 16px; }
+.fee-card { background: var(--night); color: #fff; border-radius: var(--radius); padding: 24px; display: grid; gap: 4px; }
+.fee-label { color: var(--ball); font-weight: 700; }
+.fee-amount { font-size: 1.8rem; }
+.fee-desc { color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; }
+
+/* 회원 후기 */
+.review-list { display: grid; gap: 12px; }
+.review { margin: 0; background: #fff; border-left: 4px solid var(--ball); border-radius: var(--radius); padding: 20px; }
+.review cite { color: var(--muted); font-style: normal; font-size: 0.9rem; }
+
+/* 문의 탭 */
+.contact { background: #fff; border-radius: var(--radius); }
+.tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+.tabs [role="tab"] {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  font: inherit;
+  font-weight: 700;
+  color: var(--muted);
+  cursor: pointer;
+}
+.tabs [role="tab"][aria-selected="true"] { background: var(--court); border-color: var(--court); color: #fff; }
+.tab-panel .btn { margin-top: 8px; }
+.phone-line { margin-top: 20px; }
+
+/* 오시는 길 */
+.map-buttons { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.sns-links { display: flex; gap: 16px; margin-top: 16px; }
+
+.site-footer { padding: 32px 20px; text-align: center; color: var(--muted); font-size: 0.85rem; }
+
+/* 태블릿·PC */
+@media (min-width: 768px) {
+  .site-nav { display: flex; gap: 24px; }
+  .site-nav a { color: rgba(255, 255, 255, 0.85); text-decoration: none; font-weight: 600; }
+  .site-nav a:hover { color: var(--ball); }
+  .site-header { padding: 12px 40px; }
+
+  .hero { padding: 0 40px 72px; }
+  .hero h1 { font-size: 2.8rem; }
+
+  .section { padding: 88px 40px; }
+  h2 { font-size: 2rem; }
+
+  .split { grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; }
+  .split.reverse .split-img { order: 2; }
+
+  .fee-cards { grid-template-columns: 1fr 1fr; }
+  .review-list { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .tabs { max-width: 360px; }
+  .mobile-only { display: none; }
+}
